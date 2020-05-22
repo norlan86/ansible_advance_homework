@@ -1,7 +1,7 @@
 ---
 - name: Create new server instances and attaches them a network and passes metadata to the instance
   os_server:
-    cloud: openstack
+    cloud: ospcloud
     name: "{{ item.0.name }}"
     image: "{{ item.0.image }}"
     key_name: "{{ item.0.key_name }}"
@@ -21,7 +21,7 @@
 
 - name: Add floating IP to Servers
   os_floating_ip:
-    cloud: openstack
+    cloud: ospcloud
     state: present
     reuse: yes
     server: "{{ item.value.name }}"
@@ -34,7 +34,7 @@
    
 - name: OpenStack servers
   os_server_facts:
-    cloud: openstack
+    cloud: ospcloud
   register: result
   tags:
     - test.servers
