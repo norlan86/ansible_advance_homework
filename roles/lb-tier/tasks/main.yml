@@ -1,2 +1,7 @@
 ---
 # tasks file for lb-tier
+---
+- include_tasks: install-software-{{ three_tier_frontend_software_version }}.yaml
+  when: three_tier_frontend_install_software | bool
+
+- include_tasks: configure-haproxy.yaml

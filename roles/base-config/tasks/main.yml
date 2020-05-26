@@ -1,2 +1,5 @@
 ---
 # tasks file for base-config
+---
+- include_tasks: enable-repos.yaml
+  when: three_tier_common_enable_repos | bool
